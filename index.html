@@ -126,8 +126,16 @@ function payWithUPI(){
     return;
   }
   const ref='GANPATI'+Date.now();
-  const upiUrl='upi://pay?pa='+encodeURIComponent(MANDAL_UPI_ID)+'&pn='+encodeURIComponent(MANDAL_UPI_NAME)+'&am='+encodeURIComponent(amount.toFixed(2))+'&cu=INR&tr='+encodeURIComponent(ref)+'&tn='+encodeURIComponent('गणपती मंडळ वर्गणी / देणगी');
-  window.location.href=upiUrl;
+
+const upiUrl =
+  'upi://pay?pa=' + encodeURIComponent(MANDAL_UPI_ID) +
+  '&pn=' + encodeURIComponent(MANDAL_UPI_NAME) +
+  '&am=' + encodeURIComponent(amount) +
+  '&cu=INR' +
+  '&tn=' + encodeURIComponent('गणपती मंडळ देणगी') +
+  '&tr=' + encodeURIComponent(ref);
+
+window.location.href = upiUrl;
 }
 
 const isConfigured=()=>!!supabaseClient;
